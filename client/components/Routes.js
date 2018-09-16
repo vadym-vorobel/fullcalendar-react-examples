@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import SimpleCalendar from './SimpleCalendar';
-import DynamicDateCalendar from './DynamicDateCalendar';
-import DynamicEventsCalendar from './DynamicEventsCalendar';
+import SimpleCalendar from './calendar-examples/SimpleCalendar';
+import DynamicDateCalendar from './calendar-examples/DynamicDateCalendar';
+import DynamicEventsCalendar from './calendar-examples/DynamicEventsCalendar';
 
 export default function () {
   return (
