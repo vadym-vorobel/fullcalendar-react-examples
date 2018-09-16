@@ -1,0 +1,3 @@
+[submodule "packages/fullcalendar-react"]
+	path = packages/fullcalendar-react
+	url = https://github.com/vadym-vorobel/fullcalendar-react.git
