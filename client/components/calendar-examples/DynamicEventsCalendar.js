@@ -97,16 +97,12 @@ export default class DynamicEventsCalendar extends React.Component {
 
       // please, use funciton events source for reactivity support
       events: (start, end, timezone, callback) => {
-        console.log('LOAD EVENTS');
-        
         getRandomEvents(start, end)
           .then((randomEvents) => {
             callback(randomEvents);
           });
       },
     }
-
-    console.log('RERENDER');
 
     return(
       <div className="row">

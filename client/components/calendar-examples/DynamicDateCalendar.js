@@ -19,12 +19,17 @@ export default class DynamicDateCalendar extends React.Component {
           end: new Date(Date.now + 30 * 60 * 1000),
         }
       ],
-
-      date: new Date(),
     };
+
+    this.calendar = null;
 
     this.onEventSelect = this.onEventSelect.bind(this);
     this.goToSomeDate = this.goToSomeDate.bind(this);
+    this.getCalendarInstance = this.getCalendarInstance.bind(this);
+  }
+
+  getCalendarInstance(calendar) {
+    this.calendar = calendar;
   }
 
   onEventSelect(start, end) {
@@ -43,7 +48,9 @@ export default class DynamicDateCalendar extends React.Component {
   }
 
   goToSomeDate() {
-    this.setState({ date: generateRandomDate(new Date(2000, 0, 1), new Date()) });
+    const randomDate = generateRandomDate(new Date(2000, 0, 1), new Date());
+
+    this.calendar.fullCalendar('gotoDate', randomDate);
   }
 
   render() {
@@ -54,7 +61,6 @@ export default class DynamicDateCalendar extends React.Component {
 
       id: 'calendar-example',
       defaultView: 'agendaDay',
-      defaultDate: this.state.date,
       timezone: 'local',
 
       editable: true,
@@ -80,7 +86,7 @@ export default class DynamicDateCalendar extends React.Component {
         <div className="calendar">
           <button onClick={this.goToSomeDate}>Go To Date</button>
 
-          <FullCalendar options={calendarOptions} />
+          <FullCalendar options={calendarOptions} getCalendarInstance={this.getCalendarInstance} />
         </div>
       </div>
     );
